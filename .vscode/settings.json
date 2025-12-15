@@ -1,0 +1,8 @@
+{
+    "accessibility.signals.chatResponseReceived": {
+        "sound": "on"
+    },
+    "accessibility.voice.keywordActivation": "chatInView",
+    "accessibility.voice.autoSynthesize": "off",
+    "accessibility.voice.speechTimeout": 12
+}

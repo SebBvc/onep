@@ -1,0 +1,13 @@
+services:
+  mongo:
+    build:
+      context: .
+      dockerfile: database/Dockerfile.mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./database/data_v:/data/db
+
