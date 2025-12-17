@@ -1,0 +1,7 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  mongodb:
+    host: mongo
+    port: 27017

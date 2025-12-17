@@ -1,8 +1,8 @@
 services:
   mongo:
     build:
-      context: .
-      dockerfile: database/Dockerfile.mongo
+      context: ./database
+      dockerfile: mongo.Dockerfile
     ports:
       - "27017:27017"
     environment:
@@ -10,4 +10,17 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
       - ./database/data_v:/data/db
+  backend:
+    build:
+      context: ./backend
+      dockerfile: backend.Dockerfile
+      args:
+        SPRING_PROFILES_ACTIVE: local
+    ports:
+      - "8080:8080"
+    environment:
+      MONGO_URI: mongodb://root:root@mongo:27017/
+      SPRING_PROFILES_ACTIVE: local
 
+    depends_on:
+      - mongo
